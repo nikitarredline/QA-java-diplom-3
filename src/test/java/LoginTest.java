@@ -1,8 +1,9 @@
+import PageObject.HelperBase;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class LoginTest extends PageObject {
+public class LoginTest extends HelperBase {
 
     @Test
     public void loginMainPageTest() {
@@ -11,7 +12,7 @@ public class LoginTest extends PageObject {
         inputEmail("testemail@yandex.ru");
         inputPassword("nikitarredline");
         clickButton("Войти");
-        Assert.assertEquals("Соберите бургер", getText("Соберите бургер"));
+        Assert.assertEquals("Не найден текст 'Соберите бургер' на главной странице", "Соберите бургер", getText("Соберите бургер"));
     }
 
     @Test
@@ -21,7 +22,7 @@ public class LoginTest extends PageObject {
         inputEmail("testemail@yandex.ru");
         inputPassword("nikitarredline");
         clickButton("Войти");
-        Assert.assertEquals("Соберите бургер", getText("Соберите бургер"));
+        Assert.assertEquals("Не найден текст 'Соберите бургер' на главной странице", "Соберите бургер", getText("Соберите бургер"));
     }
 
     @Test
@@ -31,14 +32,14 @@ public class LoginTest extends PageObject {
         inputEmail("testemail@yandex.ru");
         inputPassword("nikitarredline");
         clickButton("Войти");
-        Assert.assertEquals("Соберите бургер", getText("Соберите бургер"));
+        Assert.assertEquals("Не найден текст 'Соберите бургер' на главной странице", "Соберите бургер", getText("Соберите бургер"));
     }
 
     @After
     public void provisionPostconditions() {
         clickButton("Личный Кабинет");
         clickButton("Выход");
-        Assert.assertEquals("Вход", getText("Вход"));
+        Assert.assertEquals("Не найден текст 'Вход' на странице авторизации", "Вход", getText("Вход"));
     }
 
 }

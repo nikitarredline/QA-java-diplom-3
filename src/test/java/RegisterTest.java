@@ -1,25 +1,29 @@
+import PageObject.HelperBase;
+import PageObject.RegisterHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class RegisterTest extends PageObject {
+public class RegisterTest extends HelperBase {
 
     @Test
     public void registerTest() {
+        RegisterHelper registerHelper = new RegisterHelper();
         clickButton("Зарегистрироваться");
-        inputName();
+        registerHelper.inputName();
         inputEmail(email);
         inputPassword(password);
         clickButton("Зарегистрироваться");
-        Assert.assertEquals("Вход", getText("Вход"));
+        Assert.assertEquals("Не найден текст 'Вход' на странице авторизации", "Вход", getText("Вход"));
     }
 
     @Test
     public void incorrectPasswordTest() {
+        RegisterHelper registerHelper = new RegisterHelper();
         clickButton("Зарегистрироваться");
-        inputName();
+        registerHelper.inputName();
         inputEmail(email);
-        inputIncorrectPassword();
+        registerHelper.inputIncorrectPassword();
         clickButton("Зарегистрироваться");
-        Assert.assertEquals("Некорректный пароль", getText("Некорректный пароль"));
+        Assert.assertEquals("Не найден текст 'Некорректный пароль' на странице регистрации", "Некорректный пароль", getText("Некорректный пароль"));
     }
 }

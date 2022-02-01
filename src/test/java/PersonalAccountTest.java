@@ -1,13 +1,14 @@
+import PageObject.HelperBase;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class PersonalAccountTest extends PageObject {
+public class PersonalAccountTest extends HelperBase {
 
     @Test
     public void noLoginPersonalAccountTest() {
         clickButton("Конструктор");
         clickButton("Личный Кабинет");
-        Assert.assertEquals("Вход", getText("Вход"));
+        Assert.assertEquals("Не найден текст 'Вход' на странице авторизации", "Вход", getText("Вход"));
     }
 
     @Test
@@ -17,9 +18,9 @@ public class PersonalAccountTest extends PageObject {
         clickButton("Войти");
         clickButton("Конструктор");
         clickButton("Личный Кабинет");
-        Assert.assertEquals("Профиль", getText("Профиль"));
+        Assert.assertEquals("Не найден текст 'Профиль' на странице 'Личный кабинет'", "Профиль", getText("Профиль"));
         clickButton("Выход");
-        Assert.assertEquals("Вход", getText("Вход"));
+        Assert.assertEquals("Не найден текст 'Вход' на странице авторизации", "Вход", getText("Вход"));
     }
 
 }
