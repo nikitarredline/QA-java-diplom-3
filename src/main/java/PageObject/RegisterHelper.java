@@ -8,12 +8,12 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class RegisterHelper {
 
-    String name = RandomStringUtils.randomAlphabetic(10);
+    String newName = RandomStringUtils.randomAlphabetic(10);
     String incorrectPassword = RandomStringUtils.randomAlphabetic(5);
 
     @Step("Ввести имя")
     public void inputName() {
-        $(By.xpath("//*[text()='Имя']/following::input[1]")).sendKeys(name);
+        $(By.xpath("//*[text()='Имя']/following::input[1]")).sendKeys(newName);
     }
 
     @Step("Ввести некорректный пароль")

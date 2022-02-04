@@ -10,8 +10,8 @@ public class RegisterTest extends HelperBase {
         RegisterHelper registerHelper = new RegisterHelper();
         clickButton("Зарегистрироваться");
         registerHelper.inputName();
-        inputEmail(email);
-        inputPassword(password);
+        inputEmail(newEmail);
+        inputPassword(newPassword);
         clickButton("Зарегистрироваться");
         Assert.assertEquals("Не найден текст 'Вход' на странице авторизации", "Вход", getText("Вход"));
     }
@@ -21,7 +21,7 @@ public class RegisterTest extends HelperBase {
         RegisterHelper registerHelper = new RegisterHelper();
         clickButton("Зарегистрироваться");
         registerHelper.inputName();
-        inputEmail(email);
+        inputEmail(newEmail);
         registerHelper.inputIncorrectPassword();
         clickButton("Зарегистрироваться");
         Assert.assertEquals("Не найден текст 'Некорректный пароль' на странице регистрации", "Некорректный пароль", getText("Некорректный пароль"));
